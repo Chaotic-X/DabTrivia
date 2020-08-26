@@ -15,6 +15,10 @@
 		FA340AB924F6D80000527600 /* Quizz.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340AB824F6D80000527600 /* Quizz.swift */; };
 		FA340ABB24F6D81100527600 /* QuizzController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340ABA24F6D81100527600 /* QuizzController.swift */; };
 		FA340ABD24F6D82C00527600 /* QuizzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340ABC24F6D82C00527600 /* QuizzViewController.swift */; };
+		FA340AA924F6D71A00527600 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA340AA724F6D71A00527600 /* LaunchScreen.storyboard */; };
+		FA340AB924F6D80000527600 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340AB824F6D80000527600 /* Trivia.swift */; };
+		FA340ABB24F6D81100527600 /* TriviaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340ABA24F6D81100527600 /* TriviaController.swift */; };
+		FA340ABD24F6D82C00527600 /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340ABC24F6D82C00527600 /* TriviaViewController.swift */; };
 		FA340ABF24F6D88400527600 /* QuizzCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340ABE24F6D88400527600 /* QuizzCustomView.swift */; };
 		FA340AC124F6D89600527600 /* QuizzExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340AC024F6D89600527600 /* QuizzExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -27,9 +31,9 @@
 		FA340AA524F6D71A00527600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA340AA824F6D71A00527600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA340AAA24F6D71A00527600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA340AB824F6D80000527600 /* Quizz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizz.swift; sourceTree = "<group>"; };
-		FA340ABA24F6D81100527600 /* QuizzController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzController.swift; sourceTree = "<group>"; };
-		FA340ABC24F6D82C00527600 /* QuizzViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzViewController.swift; sourceTree = "<group>"; };
+		FA340AB824F6D80000527600 /* Trivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
+		FA340ABA24F6D81100527600 /* TriviaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaController.swift; sourceTree = "<group>"; };
+		FA340ABC24F6D82C00527600 /* TriviaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaViewController.swift; sourceTree = "<group>"; };
 		FA340ABE24F6D88400527600 /* QuizzCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzCustomView.swift; sourceTree = "<group>"; };
 		FA340AC024F6D89600527600 /* QuizzExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,7 +101,7 @@
 		FA340AB224F6D79E00527600 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				FA340AB824F6D80000527600 /* Quizz.swift */,
+				FA340AB824F6D80000527600 /* Trivia.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -114,7 +118,7 @@
 		FA340AB424F6D7AD00527600 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA340ABC24F6D82C00527600 /* QuizzViewController.swift */,
+				FA340ABC24F6D82C00527600 /* TriviaViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -122,7 +126,7 @@
 		FA340AB524F6D7B300527600 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA340ABA24F6D81100527600 /* QuizzController.swift */,
+				FA340ABA24F6D81100527600 /* TriviaController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -215,10 +219,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA340A9B24F6D71900527600 /* AppDelegate.swift in Sources */,
-				FA340AB924F6D80000527600 /* Quizz.swift in Sources */,
+				FA340AB924F6D80000527600 /* Trivia.swift in Sources */,
 				FA340A9D24F6D71900527600 /* SceneDelegate.swift in Sources */,
-				FA340ABB24F6D81100527600 /* QuizzController.swift in Sources */,
-				FA340ABD24F6D82C00527600 /* QuizzViewController.swift in Sources */,
+				FA340ABB24F6D81100527600 /* TriviaController.swift in Sources */,
+				FA340ABD24F6D82C00527600 /* TriviaViewController.swift in Sources */,
 				FA340AC124F6D89600527600 /* QuizzExtensions.swift in Sources */,
 				FA340ABF24F6D88400527600 /* QuizzCustomView.swift in Sources */,
 			);
