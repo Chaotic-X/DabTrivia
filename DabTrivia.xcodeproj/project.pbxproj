@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		FA340A9B24F6D71900527600 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340A9A24F6D71900527600 /* AppDelegate.swift */; };
 		FA340A9D24F6D71900527600 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340A9C24F6D71900527600 /* SceneDelegate.swift */; };
-		FA340AA224F6D71900527600 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA340AA024F6D71900527600 /* Main.storyboard */; };
+		FA340AA224F6D71900527600 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA340AA024F6D71900527600 /* LaunchScreen.storyboard */; };
 		FA340AA624F6D71A00527600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA340AA524F6D71A00527600 /* Assets.xcassets */; };
-		FA340AA924F6D71A00527600 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA340AA724F6D71A00527600 /* LaunchScreen.storyboard */; };
+		FA340AA924F6D71A00527600 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA340AA724F6D71A00527600 /* Main.storyboard */; };
 		FA340AB924F6D80000527600 /* Quizz.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340AB824F6D80000527600 /* Quizz.swift */; };
 		FA340ABB24F6D81100527600 /* QuizzController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340ABA24F6D81100527600 /* QuizzController.swift */; };
 		FA340ABD24F6D82C00527600 /* QuizzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA340ABC24F6D82C00527600 /* QuizzViewController.swift */; };
@@ -23,9 +23,9 @@
 		FA340A9724F6D71900527600 /* DabTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DabTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA340A9A24F6D71900527600 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA340A9C24F6D71900527600 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA340AA124F6D71900527600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA340AA124F6D71900527600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA340AA524F6D71A00527600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA340AA824F6D71A00527600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA340AA824F6D71A00527600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA340AAA24F6D71A00527600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA340AB824F6D80000527600 /* Quizz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizz.swift; sourceTree = "<group>"; };
 		FA340ABA24F6D81100527600 /* QuizzController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzController.swift; sourceTree = "<group>"; };
@@ -88,8 +88,8 @@
 		FA340AB124F6D73F00527600 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				FA340AA024F6D71900527600 /* Main.storyboard */,
-				FA340AA724F6D71A00527600 /* LaunchScreen.storyboard */,
+				FA340AA024F6D71900527600 /* LaunchScreen.storyboard */,
+				FA340AA724F6D71A00527600 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -201,9 +201,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA340AA924F6D71A00527600 /* LaunchScreen.storyboard in Resources */,
+				FA340AA924F6D71A00527600 /* Main.storyboard in Resources */,
 				FA340AA624F6D71A00527600 /* Assets.xcassets in Resources */,
-				FA340AA224F6D71900527600 /* Main.storyboard in Resources */,
+				FA340AA224F6D71900527600 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,20 +227,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FA340AA024F6D71900527600 /* Main.storyboard */ = {
+		FA340AA024F6D71900527600 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FA340AA124F6D71900527600 /* Base */,
 			);
-			name = Main.storyboard;
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		FA340AA724F6D71A00527600 /* LaunchScreen.storyboard */ = {
+		FA340AA724F6D71A00527600 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FA340AA824F6D71A00527600 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
