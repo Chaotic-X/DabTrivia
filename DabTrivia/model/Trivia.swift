@@ -17,3 +17,5 @@ struct Trivia: Decodable {
 	let correct_answer: String
 	let incorrect_answers: [String]
 }
+
+    
