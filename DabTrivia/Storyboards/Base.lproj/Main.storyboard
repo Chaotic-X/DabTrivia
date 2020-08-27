@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Trivia View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController id="01J-lp-oVM" customClass="TriviaViewController" customModule="DabTrivia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,8 +27,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="OTC-fo-PJX" userLabel="Settings">
                                         <rect key="frame" x="0.0" y="96.5" width="335" height="185"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select number  of questions (difficulty)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHQ-a0-cp7">
-                                                <rect key="frame" x="19" y="0.0" width="297.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Difficulty:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHQ-a0-cp7">
+                                                <rect key="frame" x="105" y="0.0" width="125.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -40,9 +40,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="32" height="30"/>
                                                         <state key="normal" title="easy"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W18-mu-Qhl">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyx-py-cQT">
                                                         <rect key="frame" x="139" y="0.0" width="55" height="30"/>
-                                                        <state key="normal" title="Medium"/>
+                                                        <state key="normal" title="medium"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iuj-vw-JnA">
                                                         <rect key="frame" x="301" y="0.0" width="34" height="30"/>
@@ -79,6 +79,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daF-ip-f1F">
                                         <rect key="frame" x="110" y="357.5" width="115" height="30"/>
                                         <state key="normal" title="Begin The Trivia!"/>
+                                        <connections>
+                                            <action selector="begingameButtonTapped:" destination="01J-lp-oVM" eventType="touchUpInside" id="eAe-GH-P43"/>
+                                            <segue destination="TB6-sg-KKc" kind="show" id="uUM-fk-vPq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -116,21 +120,29 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="easyModeButton" destination="EtF-mN-nHj" id="aac-eq-2Dn"/>
+                        <outlet property="fifteenQuestions" destination="PPA-4T-icd" id="9cV-re-5pe"/>
+                        <outlet property="hardModebutton" destination="Iuj-vw-JnA" id="Nwu-Jm-A9H"/>
+                        <outlet property="mediumModebutton" destination="Qyx-py-cQT" id="CPY-Qd-6wn"/>
+                        <outlet property="tenQuestionsButton" destination="PYx-uQ-VeE" id="OMI-po-RG1"/>
+                        <outlet property="tewntyQuestions" destination="bQ4-zW-mAc" id="ibF-2C-J38"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
-        <!--View Controller-->
+        <!--Trivia Questions View Controller-->
         <scene sceneID="ntc-W3-Xce">
             <objects>
-                <viewController id="TB6-sg-KKc" sceneMemberID="viewController">
+                <viewController id="TB6-sg-KKc" customClass="TriviaQuestionsViewController" customModule="DabTrivia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xqc-qv-c1i">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="QGN-Zj-baK">
-                                <rect key="frame" x="41.5" y="360" width="331" height="186"/>
+                                <rect key="frame" x="41.5" y="311" width="331" height="186"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nlh-kl-0AS">
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="33"/>
@@ -155,13 +167,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJi-Q2-kUS">
-                                <rect key="frame" x="168" y="216.5" width="78" height="20.5"/>
+                                <rect key="frame" x="168" y="192" width="78" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="Hv2-vM-ySk">
-                                <rect key="frame" x="108" y="706.5" width="198" height="20.5"/>
+                                <rect key="frame" x="108" y="663.5" width="198" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Score:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sm-FK-CUu">
                                         <rect key="frame" x="0.0" y="0.0" width="64" height="20.5"/>
@@ -192,6 +204,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dhg-4L-pdq"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fXu-5c-zxm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eh-1X-yce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

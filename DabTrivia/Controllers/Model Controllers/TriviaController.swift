@@ -44,4 +44,7 @@ class TriviaController {
 		}.resume()
 		
 	}//end of function
+//CRUD
+    
+    
 }//end of class
