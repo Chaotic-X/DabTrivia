@@ -7,7 +7,9 @@
 
 import UIKit
 
-class TriviaViewController: UIViewController {
+class TriviaViewController: UIViewController, isAbleToReceiveData {
+	var sendingScore: Int = 0
+	
 	
 	// Outlets
 	
@@ -17,19 +19,23 @@ class TriviaViewController: UIViewController {
 	@IBOutlet weak var tenQuestionsButton: UIButton!
 	@IBOutlet weak var fifteenQuestions: UIButton!
 	@IBOutlet weak var tewntyQuestions: UIButton!
+	@IBOutlet weak var highScoreLabel: UILabel!
 	
 	//MARK: Properties
 	
 	var numberOfQuestions = 10
 	var difficulty: String = "easy"
-	
+	var highScore = 0
 	//MARK: Lifecycles
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 	}
-	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		highScore = sendingScore
+		highScoreLabel.text = "\(highScore)"
+	}
 	// Actions
 	@IBAction func easyButtonTapped(_ sender: Any) {
 		difficulty = "easy"
@@ -51,13 +57,14 @@ class TriviaViewController: UIViewController {
 		numberOfQuestions = 20
 	}
 	@IBAction func beginGameButtonTapped(_ sender: Any) {
-		
 	}
+	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let questionsNumber = self.numberOfQuestions
 		let difficultyToSend = self.difficulty
 		//						print("\(String(describing: questionsToSend.first?.correct_answer))")
 		guard let destinationVC = segue.destination as? TriviaQuestionsViewController else {return}
+		destinationVC.delegate = self
 		destinationVC.number = questionsNumber
 		destinationVC.difficulty = difficultyToSend
 	}

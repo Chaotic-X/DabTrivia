@@ -148,6 +148,7 @@
                         <outlet property="easyModeButton" destination="EtF-mN-nHj" id="aac-eq-2Dn"/>
                         <outlet property="fifteenQuestions" destination="PPA-4T-icd" id="9cV-re-5pe"/>
                         <outlet property="hardModebutton" destination="Iuj-vw-JnA" id="Nwu-Jm-A9H"/>
+                        <outlet property="highScoreLabel" destination="1t4-oH-WHQ" id="8E8-iS-YF0"/>
                         <outlet property="mediumModebutton" destination="Qyx-py-cQT" id="CPY-Qd-6wn"/>
                         <outlet property="tenQuestionsButton" destination="PYx-uQ-VeE" id="OMI-po-RG1"/>
                         <outlet property="tewntyQuestions" destination="bQ4-zW-mAc" id="ibF-2C-J38"/>
@@ -168,40 +169,40 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="QGN-Zj-baK">
                                 <rect key="frame" x="41.5" y="360" width="331" height="186"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nlh-kl-0AS">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Nlh-kl-0AS">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
                                             <action selector="answerButtonTapped:" destination="TB6-sg-KKc" eventType="touchUpInside" id="z56-CG-hMn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQR-tR-GJD">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="PQR-tR-GJD">
                                         <rect key="frame" x="0.0" y="51" width="331" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
                                             <action selector="answerButtonTapped:" destination="TB6-sg-KKc" eventType="touchUpInside" id="bMS-My-1h9"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoO-qG-q1J">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hoO-qG-q1J">
                                         <rect key="frame" x="0.0" y="102" width="331" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
                                             <action selector="answerButtonTapped:" destination="TB6-sg-KKc" eventType="touchUpInside" id="GA3-JA-IxC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Poe-vp-2Ai">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Poe-vp-2Ai">
                                         <rect key="frame" x="0.0" y="153" width="331" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
@@ -239,13 +240,21 @@
                                     <action selector="nextButtonTapped:" destination="TB6-sg-KKc" eventType="touchUpInside" id="rUw-p8-2tU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 of 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGM-cB-V7u">
+                                <rect key="frame" x="165.5" y="188" width="83" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dhg-4L-pdq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="tGM-cB-V7u" firstAttribute="width" secondItem="Xqc-qv-c1i" secondAttribute="width" multiplier="0.2" id="2b7-BP-g7Z"/>
                             <constraint firstItem="QGN-Zj-baK" firstAttribute="width" secondItem="Xqc-qv-c1i" secondAttribute="width" multiplier="0.8" id="2sn-PM-IL1"/>
                             <constraint firstItem="QGN-Zj-baK" firstAttribute="centerX" secondItem="Dhg-4L-pdq" secondAttribute="centerX" id="3tB-Cd-sMD"/>
                             <constraint firstItem="BPH-rV-7eg" firstAttribute="top" secondItem="QGN-Zj-baK" secondAttribute="bottom" constant="25" id="4nm-io-IIN"/>
+                            <constraint firstItem="WJi-Q2-kUS" firstAttribute="top" secondItem="tGM-cB-V7u" secondAttribute="bottom" constant="8" id="8gf-FW-EIO"/>
                             <constraint firstItem="BPH-rV-7eg" firstAttribute="width" secondItem="Xqc-qv-c1i" secondAttribute="width" multiplier="0.2" id="Ddj-LU-2HM"/>
                             <constraint firstItem="Hv2-vM-ySk" firstAttribute="centerY" secondItem="Xqc-qv-c1i" secondAttribute="centerY" multiplier="1.6" id="OY2-Tw-jll"/>
                             <constraint firstItem="QGN-Zj-baK" firstAttribute="centerY" secondItem="Dhg-4L-pdq" secondAttribute="centerY" id="Pv6-d4-1W7"/>
@@ -253,6 +262,7 @@
                             <constraint firstItem="Dhg-4L-pdq" firstAttribute="trailing" secondItem="DS3-WD-UNB" secondAttribute="trailing" constant="108" id="RsW-R5-WuN"/>
                             <constraint firstItem="WJi-Q2-kUS" firstAttribute="centerY" secondItem="Dhg-4L-pdq" secondAttribute="centerY" multiplier="0.5" id="TE6-yi-pvr"/>
                             <constraint firstItem="WJi-Q2-kUS" firstAttribute="width" secondItem="Xqc-qv-c1i" secondAttribute="width" multiplier="0.75" id="XJw-Bl-pF3"/>
+                            <constraint firstItem="tGM-cB-V7u" firstAttribute="centerX" secondItem="WJi-Q2-kUS" secondAttribute="centerX" id="fHC-ZB-o2R"/>
                             <constraint firstItem="WJi-Q2-kUS" firstAttribute="centerX" secondItem="Dhg-4L-pdq" secondAttribute="centerX" id="ggP-Q3-13Z"/>
                             <constraint firstItem="Hv2-vM-ySk" firstAttribute="centerX" secondItem="Dhg-4L-pdq" secondAttribute="centerX" id="jTq-6i-cEx"/>
                             <constraint firstItem="Hv2-vM-ySk" firstAttribute="centerX" secondItem="Xqc-qv-c1i" secondAttribute="centerX" id="nvp-xm-XaS"/>
@@ -260,11 +270,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="fXu-5c-zxm"/>
                     <connections>
-                        <outlet property="answerFourLabel" destination="Poe-vp-2Ai" id="1jX-Nk-xBx"/>
-                        <outlet property="answerOneLabel" destination="Nlh-kl-0AS" id="Qus-Qx-mcE"/>
-                        <outlet property="answerThreeLabel" destination="hoO-qG-q1J" id="fd3-H7-3TS"/>
-                        <outlet property="answerTwoLabel" destination="PQR-tR-GJD" id="MZO-3L-Tf2"/>
+                        <outlet property="answerFourButton" destination="Poe-vp-2Ai" id="1jX-Nk-xBx"/>
+                        <outlet property="answerOneButton" destination="Nlh-kl-0AS" id="Qus-Qx-mcE"/>
+                        <outlet property="answerThreeButton" destination="hoO-qG-q1J" id="fd3-H7-3TS"/>
+                        <outlet property="answerTwoButton" destination="PQR-tR-GJD" id="MZO-3L-Tf2"/>
+                        <outlet property="nextButton" destination="BPH-rV-7eg" id="McK-RX-uW9"/>
+                        <outlet property="progressLabel" destination="tGM-cB-V7u" id="s44-zc-zCh"/>
                         <outlet property="questionlabel" destination="WJi-Q2-kUS" id="T2j-co-DXk"/>
+                        <outlet property="scoreLabel" destination="DS3-WD-UNB" id="kjg-nB-rvH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eh-1X-yce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

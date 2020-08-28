@@ -7,88 +7,112 @@
 //
 
 import UIKit
-
+protocol isAbleToReceiveData: class {
+	var sendingScore: Int {get set}  //data: string is an example parameter
+}
 class TriviaQuestionsViewController: UIViewController {
 	
+	//MARK: -Outlets
 	@IBOutlet weak var questionlabel: UILabel!
-	@IBOutlet weak var answerOneLabel: UIButton!
-	@IBOutlet weak var answerTwoLabel: UIButton!
-	@IBOutlet weak var answerThreeLabel: UIButton!
-	@IBOutlet weak var answerFourLabel: UIButton!
+	@IBOutlet weak var answerOneButton: UIButton!
+	@IBOutlet weak var answerTwoButton: UIButton!
+	@IBOutlet weak var answerThreeButton: UIButton!
+	@IBOutlet weak var answerFourButton: UIButton!
+	@IBOutlet weak var nextButton: UIButton!
+	@IBOutlet weak var progressLabel: UILabel!
+	@IBOutlet weak var scoreLabel: UILabel!
 	
+	//MARK: -Properties
 	var questions: [Trivia] = []
+	var correctAnswer: String = ""
 	var correctAnswerArray: [String] = []
 	var answerArray: [String] = []
 	var number = 0
 	var difficulty = ""
-	lazy var count = number
+	lazy var buttonArray = [answerOneButton, answerTwoButton, answerThreeButton, answerFourButton]
+	var count = 0
+	var score = 0
+	weak var delegate: isAbleToReceiveData?
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		startGame(with: difficulty, question: number)
+		answerOneButton.backgroundColor = .systemGray3
+		answerTwoButton.backgroundColor = .systemGray3
+		answerThreeButton.backgroundColor = .systemGray3
+		answerFourButton.backgroundColor = .systemGray3
+		scoreLabel.text = "0"
 		
 	}
-	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		delegate? .sendingScore = score
+	}
 	//MARK: -Actions
 	@IBAction func answerButtonTapped(_ sender: UIButton) {
-		switch sender.tag {
-			case 0:
-				if answerOneLabel.title(for: .normal) == questions.first?.correct_answer {
-					answerOneLabel.backgroundColor = .green
-					answerTwoLabel.backgroundColor = .red
-					answerThreeLabel.backgroundColor = .red
-					answerFourLabel.backgroundColor = .red
-				} else {
-					print("You got it wrong")
-					answerOneLabel.backgroundColor = .red
-				}
-			case 1:
-				if answerTwoLabel.title(for: .normal) == questions.first?.correct_answer {
-					answerOneLabel.backgroundColor = .red
-					answerTwoLabel.backgroundColor = .green
-					answerThreeLabel.backgroundColor = .red
-					answerFourLabel.backgroundColor = .red
-				} else {
-					print("You got it wrong")
-					answerTwoLabel.backgroundColor = .red
-				}
-			case 2:
-				if answerThreeLabel.title(for: .normal) == questions.first?.correct_answer {
-					answerOneLabel.backgroundColor = .red
-					answerTwoLabel.backgroundColor = .red
-					answerThreeLabel.backgroundColor = .green
-					answerFourLabel.backgroundColor = .red
-				} else {
-					print("You got it wrong")
-					answerThreeLabel.backgroundColor = .red
-				}
-			case 3:
-				if answerFourLabel.title(for: .normal) == questions.first?.correct_answer {
-					answerOneLabel.backgroundColor = .red
-					answerTwoLabel.backgroundColor = .red
-					answerThreeLabel.backgroundColor = .red
-					answerFourLabel.backgroundColor = .green
-				} else {
-					print("You got it wrong")
-					answerFourLabel.backgroundColor = .red
-				}
-			default:
-				print("no go")
+		for i in buttonArray where i?.title(for: .normal) == String(htmlEncodedString: questions.first?.correct_answer ?? "") {
+			guard let correct = i else { return }
+			switch correct {
+				case answerOneButton:
+					answerOneButton.backgroundColor = .green
+					answerTwoButton.backgroundColor = .red
+					answerThreeButton.backgroundColor = .red
+					answerFourButton.backgroundColor = .red
+					answerEnabled()
+					nextButtonState()
+				case answerTwoButton:
+					answerOneButton.backgroundColor = .red
+					answerTwoButton.backgroundColor = .green
+					answerThreeButton.backgroundColor = .red
+					answerFourButton.backgroundColor = .red
+					answerEnabled()
+					nextButtonState()
+				case answerThreeButton:
+					answerOneButton.backgroundColor = .red
+					answerTwoButton.backgroundColor = .red
+					answerThreeButton.backgroundColor = .green
+					answerFourButton.backgroundColor = .red
+					answerEnabled()
+					nextButtonState()
+				case answerFourButton:
+					answerOneButton.backgroundColor = .red
+					answerTwoButton.backgroundColor = .red
+					answerThreeButton.backgroundColor = .red
+					answerFourButton.backgroundColor = .green
+					answerEnabled()
+					nextButtonState()
+				default:
+					break
+			}
+		}
+		if sender.backgroundColor == .green {
+			switch difficulty {
+				case "easy":
+					score += 5
+					scoreLabel.text = "\(score)"
+				case "medium":
+					score += 10
+					scoreLabel.text = "\(score)"
+				case "hard":
+					score += 15
+					scoreLabel.text = "\(score)"
+				default:
+					print("no points")
+			}
 		}
 	}
 	
 	@IBAction func nextButtonTapped(_ sender: Any) {
-		
-		count -= 1
+		clearButtonState()
+		answerEnabled()
+		count += 1
 		print(count)
-		if count > 0 {
+		if count < number {
 			questions.remove(at: 0)
 			setupGame()
 		} else {
 			self.dismiss(animated: true, completion: nil)
-//			navigationController?.popViewController(animated: true)
 		}
 	}
-	
 	
 	//MARK: -Class Methods
 	func startGame(with difficulty: String, question number: Int) {
@@ -104,14 +128,38 @@ class TriviaQuestionsViewController: UIViewController {
 			}
 		}
 	}
+	
 	func setupGame(){
+		progressLabel.text = "\(count + 1) of \(number)"
+		nextButton.isEnabled = false
+//		nextButton.backgroundColor = .clear
+		nextButton.tintColor = .systemGray
 		questionlabel.text = String(htmlEncodedString: questions.first?.question ?? "")
+		correctAnswer = String(htmlEncodedString: questions.first?.correct_answer ?? "") ?? ""
 		self.correctAnswerArray = ["\(self.questions.first?.correct_answer ?? "")", "\(self.questions.first?.incorrect_answers[0] ?? "")", "\(self.questions.first?.incorrect_answers[1] ?? "")", "\(self.questions.first?.incorrect_answers[2] ?? "")"]
 		self.answerArray = self.correctAnswerArray.shuffled()
-		answerOneLabel.setTitle(String(htmlEncodedString: answerArray[0]),for: .normal)
-		answerTwoLabel.setTitle(String(htmlEncodedString: answerArray[1]), for: .normal)
-		answerThreeLabel.setTitle(String(htmlEncodedString: answerArray[2]), for: .normal)
-		answerFourLabel.setTitle(String(htmlEncodedString: answerArray[3]), for: .normal)
+		answerOneButton.setTitle(String(htmlEncodedString: answerArray[0]),for: .normal)
+		answerTwoButton.setTitle(String(htmlEncodedString: answerArray[1]), for: .normal)
+		answerThreeButton.setTitle(String(htmlEncodedString: answerArray[2]), for: .normal)
+		answerFourButton.setTitle(String(htmlEncodedString: answerArray[3]), for: .normal)
+	}
+	
+	func clearButtonState(){
+		answerOneButton.backgroundColor = .systemGray3
+		answerTwoButton.backgroundColor = .systemGray3
+		answerThreeButton.backgroundColor = .systemGray3
+		answerFourButton.backgroundColor = .systemGray3
+		nextButtonState()
+	}
+	func answerEnabled(){
+		answerOneButton.isEnabled.toggle()
+		answerTwoButton.isEnabled.toggle()
+		answerThreeButton.isEnabled.toggle()
+		answerFourButton.isEnabled.toggle()
+	}
+	func nextButtonState(){
+		nextButton.isEnabled.toggle()
+		(nextButton.tintColor == .blue) ? (nextButton.tintColor = .systemGray) : (nextButton.tintColor = .blue)
 	}
 }
 
