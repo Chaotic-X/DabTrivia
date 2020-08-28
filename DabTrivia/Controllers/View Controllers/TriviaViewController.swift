@@ -33,8 +33,7 @@ class TriviaViewController: UIViewController, isAbleToReceiveData {
 	}
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		highScore = sendingScore
-		highScoreLabel.text = "\(highScore)"
+		highScoreTally()
 	}
 	// Actions
 	@IBAction func easyButtonTapped(_ sender: Any) {
@@ -70,5 +69,13 @@ class TriviaViewController: UIViewController, isAbleToReceiveData {
 	}
 	
 	// Methods:
-
+	func highScoreTally() {
+		if highScore >= sendingScore {
+			highScoreLabel.text = "\(highScore)"
+		} else if highScore < sendingScore {
+			highScore = sendingScore
+			highScoreLabel.text = "\(highScore)"
+		}
+		
+	}
 }// end of class
