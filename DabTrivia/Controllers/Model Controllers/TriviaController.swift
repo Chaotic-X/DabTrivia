@@ -12,6 +12,7 @@ class TriviaController {
 	static let baseURL = URL(string: "https://opentdb.com/api.php")
 	static let amountTermKey = "amount"
 	static let difficultyTermKey = "difficulty"
+	static let multipleTermKey = "multiple"
 	
 	static func fetchQuestions(number: Int, difficulty: String, completion: @escaping (Result<[Trivia], TriviaError>) -> Void) {
 		//1 - Prepare URL
@@ -20,7 +21,8 @@ class TriviaController {
 		
 		let amountQuery = URLQueryItem(name: amountTermKey, value: String(number))
 		let difficultyQuery = URLQueryItem(name: difficultyTermKey, value: difficulty)
-		components?.queryItems = [amountQuery, difficultyQuery]
+		let multipleQuery = URLQueryItem(name: "type" , value: multipleTermKey)
+		components?.queryItems = [amountQuery, difficultyQuery, multipleQuery]
 		
         guard let finalURL = components?.url else { return completion(.failure(.invalidURL))}
 		print(finalURL)
